@@ -1,0 +1,33 @@
+.image-menu{
+	background-image: all;
+
+}
+
+.titulo{
+	font-size: 3em;
+	color: seagreen;
+}
+
+.frase{
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.frase1{
+	text-align: center;
+}
+
+.boton-registro{
+	font-size: 1.5em;
+	
+	color: white;
+	background-color: red;
+
+}
+
+.botones{
+	font-size: 1em;
+	color: white;
+	background-color: skyblue;
+	
+}

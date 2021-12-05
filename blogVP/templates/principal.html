@@ -1,18 +1,26 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block contenido %}
 
-	<h1>BIENVENID@</h1>
+	<h1 class="frase">BIENVENID@</h1>
 	<b>
 	</b>
-	<h2>Visibilizá y actuá.</h2>
-	<h2>Unite a nuestra comunidad.</h2>
-	<a href="{% url 'registro:registro' %}">REGISTRARSE</a>
+
+	<h2 class="frase1">Visibilizá y actuá.</h2>
+	<h2 class="frase1">Unite a nuestra comunidad.</h2>
+
+	<a class="boton-registro" href="{% url 'registro:registro' %}">REGISTRARSE</a>
 	<br>
 	</br>
-	<a href="{% url 'ingreso:ingreso' %}">Iniciar sesión</a>
+
+	<a href="{% url 'ingreso:ingreso' %}" class="botones">Iniciar sesión</a>
 	<br>
 	</br>
-	<a href="{% url 'ods:ods' %}">ODS</a>
+
+	<a href="{% url 'ods:ods' %}" class="botones">ODS</a>
+
+	<img src="{% static 'img/pexels_paisaje.jpg' %}" class="image-principal">
+	
 
 {% endblock contenido %}
