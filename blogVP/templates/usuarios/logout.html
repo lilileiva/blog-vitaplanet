@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+	<form method="POST" action="{% url 'logout' %}">{%csrf_token%}
+		{{form.errors}}
+	</form>
+
+
+	<div class="texto">Sesión cerrada.</div>
+	<br>
+	<br>
+
+	<a href="{% url 'principal' %}" class="boton-volver">Volver</a>
+
+{% endblock contenido %}

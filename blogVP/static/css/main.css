@@ -41,6 +41,10 @@ body{
 	line-height: 100px;
 }
 
+.texto{
+	font-size: 15px;
+}
+
 /*----------------------principal------------------------*/
 
 .image-principal{
@@ -72,7 +76,7 @@ body{
 	text-align: center;
 }
 
-.boton-visivilizayactua{
+.boton-loginods{
 	font-size: 20px;
 	color: seagreen;
 	border: 3px solid grey;
@@ -82,3 +86,16 @@ body{
 	text-align: center;
 }
 
+
+
+.cuadro-login{
+	font-size: 20px;
+}
+
+.boton-volver{
+	font-size: 15px;
+}
+
+.botones-inicio{
+	font-size: 15px;
+}

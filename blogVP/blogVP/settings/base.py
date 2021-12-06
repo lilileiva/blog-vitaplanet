@@ -29,6 +29,7 @@ AUTH_USER_MODEL = 'usuarios.Usuario'
 LOGIN_REDIRECT_URL = reverse_lazy('inicio')
 LOGOUT_REDIRECT_URL = reverse_lazy('principal')
 LOGIN_URL = reverse_lazy('login')
+LOGOUT_URL = reverse_lazy('logout')
 
 # Application definition
 

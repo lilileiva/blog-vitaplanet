@@ -2,7 +2,7 @@
 
 {% block contenido %}
 
-	<form method="POST">{%csrf_token%}
+	<form method="POST" class="cuadro-login">{%csrf_token%}
 		{{form.errors}}
 		<input type="text" name="username" placeholder="USUARIO">
 		<input type="password" name="password" placeholder="PASSWORD">
@@ -10,5 +10,8 @@
 		<input type="submit" name="" value="ENVIAR">
 	</form>
 
+	<br>
+	<br>
+	<a href="{% url 'principal' %}" class="boton-volver">Volver</a>
 
 {% endblock contenido %}
