@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from django.urls import reverse_lazy
 '''from pathlib import Path'''
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -23,8 +24,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '(!a6s@#r@_x-6pj26q*1odl(#b)v0u%t#2i-@spi#3y0c&$!6^'
 
+AUTH_USER_MODEL = 'usuarios.Usuario'
 
-
+LOGIN_REDIRECT_URL = reverse_lazy('inicio')
+LOGOUT_REDIRECT_URL = reverse_lazy('principal')
+LOGIN_URL = reverse_lazy('login')
 
 # Application definition
 
@@ -42,6 +46,7 @@ INSTALLED_APPS = [
     'apps.perfil_config',
     'apps.buscar',
     'apps.ingreso',
+    'apps.usuarios',
 ]
 
 MIDDLEWARE = [
