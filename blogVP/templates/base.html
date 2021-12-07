@@ -7,21 +7,22 @@
 	<title>VitaPlanet</title>
 	
 	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+	<link rel="stylesheet" type="img/jpg" href="{% static 'img' %}">
 
 </head>
 <body>
 
-	<header class="encabezado">
-		<h1 class="titulo">VitaPlanet</h1>
-	</header>
+	<div class="linea-encabezado">
+		<header class="encabezado">
+			<h1 class="titulo">VitaPlanet</h1>
+		</header>
+	</div>
 
 	<div class="contenido">
 		{% block contenido %}
 
 		{% endblock contenido %}
 	</div>
-
 
 	<footer class="pie-de-pagina">Grupo 1: VitaPlanet. Informatorio 2021</footer>
 

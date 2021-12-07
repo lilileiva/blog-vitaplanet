@@ -1,6 +1,7 @@
 body{
 	font-family: arial, helvetica, sans-serif;
-	text-align: center;
+	background: url(pexels-lukas-296282.jpg);
+	font-size: 15px;
 }
 
 *{
@@ -10,92 +11,158 @@ body{
 /*---------------------plantilla-------------------------*/
 
 .contenido{
-	width: 100%;
-	height: 100%;
-	min-height: 800px;
+	margin: 0px;
+	text-align: center;
+	display: block;
+	background-size: cover;
+	min-height: 85vh;
+	float: center;
 }
 
 .encabezado{
 	background-color: skyblue;
+	border-bottom: 5px solid white;
 	width: 100%;
-	height: 100px;
-	float:  left;
-	margin-top: 0px;
+	height: 85px;
+	margin: 0px;
+	margin-bottom: 0px;
+}
+
+.linea-encabezado{
+	border-bottom: 10px solid skyblue;
 }
 
 .pie-de-pagina{
 	background-color: white;
+	border-top: 10px solid skyblue;
 	width: 100%;
-	height: 50px;
+	height: 40px;
 	line-height: 50px;
 	font-size: 15px;
 	text-align: center;
-	float: bottom;
+	vertical-align: bottom;
 }
 
 .titulo{
-	font-size: 5em;
-	color: seagreen;
+	font-size: 65px;
+	font-weight: bold;
+	color: skyblue;
+	-webkit-text-stroke: 3px white;
 	padding-left: 20px;
 	text-align: left;
 	line-height: 100px;
 }
 
-.texto{
-	font-size: 15px;
-}
-
 /*----------------------principal------------------------*/
-
-.image-principal{
-	margin: 0px;
-	backface-visibility: visible;
+#fondo{
+	background-image: url(https://images.pexels.com/photos/296282/pexels-photo-296282.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+	background-size: cover;
+	background-position: center;
+	min-height: 85vh;
+	display: block;
 }
 
 .frase-bienvenido{
+	font-weight: lighter;
+	color: royalblue;
 	text-align: center;
 	margin-bottom: 50px;
-	margin-top: 20px;
+	display: inline-block;
+	margin-top: 15px;
 }
 
 .frase-visilizayactua{
-	text-align: center;
+	color: seagreen;
 	font-size: 20px;
 	margin-bottom: 15px;
 	font-style: italic;
 }
 
-.boton-registro{
-	font-weight: bold;
-	font-size: 25px;
-	color: indianred;	
-	border: 3px solid grey;
-	width: 200px;
-	padding: 8px;
-	margin: 20px;
-	text-align: center;
-}
-
-.boton-loginods{
-	font-size: 20px;
-	color: seagreen;
-	border: 3px solid grey;
-	width: 200px;
-	padding: 8px;
-	margin: 20px;
-	text-align: center;
-}
-
-
-
-.cuadro-login{
-	font-size: 20px;
-}
-
-.boton-volver{
-	font-size: 15px;
+.botones-inicio1{
+	color: royalblue;
+	border: 3px solid skyblue;
+	border-radius: 20px;
+	background-color: skyblue;
+	opacity: 0.7;
+	width: 250px;
+	padding: 20px;
+	display: inline-block;
 }
 
 .botones-inicio{
-	font-size: 15px;
+	color: royalblue;
+	text-decoration: none;
+	border: 3px solid skyblue;
+	border-radius: 20px;
+	opacity: 0.7;
+	width: 250px;
+	padding: 20px;
+	display: inline-block;
 }
+
+.boton-registro{
+	font-weight: bold;
+	font-size: 20px;
+	text-decoration: none;
+	color: seagreen;
+	-webkit-text-stroke: 0.15px royalblue;	
+}
+
+.boton-loginods{
+	font-weight: bold;
+	font-size: 17px;
+	text-decoration: none;
+	color: seagreen;
+	-webkit-text-stroke: 0.15px darkblue;	
+}
+
+/*-------------login--------------*/
+
+.contenido-login{
+	font-size: 20px;
+	display: inline-block;
+}
+
+.usuario{
+	font-size: 20px;
+}
+
+.contraseña{
+	font-size: 20px;
+}
+
+.ingresar{
+	color: seagreen;
+	border: royalblue;
+	font-weight: bold;
+	background-color: white;
+	font-size: 20px;
+	border-radius: 20px;
+	padding: 5px;
+}
+
+.cuadro-login{
+	background-color: skyblue;
+	border: 3px solid skyblue;
+	border-radius: 20px;
+	opacity: 0.7;
+	width: 300px;
+	padding: 30px;
+	display: inline-block;
+	margin-top: 35px;
+}
+
+.boton-volver-login{
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+/*--------------------------------*/
+
+.boton-volver{
+	color:  royalblue;
+	font-size: 15px;
+	text-decoration: none;
+}
+/*--------------------------------*/

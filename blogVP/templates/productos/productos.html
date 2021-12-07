@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+	<p class="texto-cont">{{titulo}}</p>
+	<br>
+
+	{% for a in product %}
+		<p>
+			<b>{{a.nombre}}</b>
+			<span>{{a.precio}}</span>
+			<span>{{a.stock }}</span>
+		</p>
+	{% endfor %}
+
+{% endblock contenido %}
