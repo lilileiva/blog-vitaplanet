@@ -2,13 +2,27 @@
 
 {% block contenido %}
 
-	<form method="POST">{%csrf_token%}
-		{{form.errors}}
-		<input type="text" name="username" placeholder="USUARIO">
-		<input type="password" name="password" placeholder="PASSWORD">
+	<div id="fondo">
+		<div class="cuadro-login">
+			<div class="contenido-login">
+				<form method="POST" class="login">{%csrf_token%}
+					{{form.errors}}
+					<input type="text" name="username" placeholder="Usuario" class="usuario">
+					<br>
+					<br>
+					<input type="password" name="password" placeholder="Contraseña" class="contraseña">
+					<br>
+					<br>
+					<input type="submit" name="" value="Ingresar" class="ingresar">
+				</form>
 
-		<input type="submit" name="" value="ENVIAR">
-	</form>
+				<br>
+				<br>
 
+					<a href="{% url 'principal' %}" class="boton-volver-login">Volver</a>
+
+			</div>
+		</div>
+	</div>
 
 {% endblock contenido %}
