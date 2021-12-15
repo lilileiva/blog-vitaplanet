@@ -22,24 +22,12 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     
-    path('', views.Principal, name = 'principal'),
-
-    path('inicio/', include('apps.inicio.urls')),
-
-    path('registro/', include('apps.registro.urls')),
+    path('principal/', views.Principal, name = 'principal'),
 
     path('ods/', include('apps.ods.urls')),
 
-    path('perfil/', include('apps.perfil.urls')),
-
-    path('perfil_config/', include('apps.perfil_config.urls')),
-
-    path('buscar/', include('apps.buscar.urls')),
-
-    path('ingreso/', include('apps.ingreso.urls')),
-
     path('login/', auth.LoginView.as_view(template_name="usuarios/login.html"), name = 'login'),
-    path('logout/', auth.LoginView.as_view(template_name="usuarios/logout.html"), name = 'logout'),
+    path('logout/', auth.LogoutView.as_view(template_name="usuarios/logout.html"), name = 'logout'),
 
-
+    path('registro/', include('apps.usuarios.urls', namespace='usuarios')),
 ]

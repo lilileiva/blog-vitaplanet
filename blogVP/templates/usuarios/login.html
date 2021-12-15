@@ -2,10 +2,32 @@
 
 {% block contenido %}
 
+
+	{% if user.is_authenticated %}
+
+		<div id="fondo">
+		<div class="cuadro-login">
+			<div class="contenido-login">
+				<form method="POST" class="login">
+				
+					<h2 class="texto">Sesión ya iniciada.</h2>
+
+				<br>
+				<br>
+
+					<a href="{% url 'principal' %}" class="boton-volver-login">Volver</a>
+
+			</div>
+		</div>
+	</div>
+
+	{% else %}
+
 	<div id="fondo">
 		<div class="cuadro-login">
 			<div class="contenido-login">
-				<form method="POST" class="login">{%csrf_token%}
+				<form method="POST" class="login">
+					{%csrf_token%}
 					{{form.errors}}
 					<input type="text" name="username" placeholder="Usuario" class="usuario">
 					<br>
@@ -24,5 +46,7 @@
 			</div>
 		</div>
 	</div>
+
+	{% endif %}
 
 {% endblock contenido %}

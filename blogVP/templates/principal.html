@@ -5,26 +5,76 @@
 
 	<div id="fondo">
 
-		<h1 class="frase-bienvenido">BIENVENID@</h1>
-		<b>
-		</b>
+		{% if form.is_valid %}
+			<h1 class="frase-bienvenido">usuario creado</h1>
+			<b>
+			</b>
 
-		<h2 class="frase-visilizayactua">Visibilizá y actuá.</h2>
-		<h2 class="frase-visilizayactua">Unite a nuestra comunidad.</h2>
+			<h2 class="frase-visilizayactua">Visibilizá y actuá.</h2>
+			<h2 class="frase-visilizayactua">Unite a nuestra comunidad.</h2>
 
-		<div class="botones-inicio1">
-			<a class="boton-registro" href="{% url 'registro:registro' %}">REGISTRARSE</a>
-		</div>
+			<div class="botones-inicio1">
+				<a class="boton-registro" href="{% url 'usuarios:registro' %}">REGISTRARSE</a>
+			</div>
+				<br>
+				</br>
+			<div class="botones-inicio">
+				<a href="{% url 'login' %}" class="botones">Iniciar sesión</a>
+			</div>
+				<br>
+				</br>
+			<div class="botones-inicio">
+				<a href="{% url 'ods:ods' %}" class="botones">ODS</a>
+			</div>
+		{% endif %}
+
+		{% if user.is_authenticated %}
+			<h1>Bienvenid@ {{user.username}}</h1>
+
 			<br>
 			</br>
-		<div class="botones-inicio">
-			<a href="{% url 'login' %}" class="boton-loginods">Iniciar sesión</a>
-		</div>
+
+			<div class="botones-inicio">
+				<a href="{% url 'ods:ods' %}" class="botones">ODS</a>
+			</div>
 			<br>
 			</br>
-		<div class="botones-inicio">
-			<a href="{% url 'ods:ods' %}" class="boton-loginods">ODS</a>
-		</div>
-		
+			<div class="botones-inicio">
+				<a href="" class="botones">Perfil</a>
+			</div>
+			<br>
+			</br>
+			<div class="botones-inicio">
+				<a href="{% url 'logout' %}" class="botones">Cerrar sesión</a>
+			</div>
+
+		{% else %}
+
+			<h1 class="frase-bienvenido">BIENVENID@</h1>
+			<b>
+			</b>
+
+			<h2 class="frase-visilizayactua">Visibilizá y actuá.</h2>
+			<h2 class="frase-visilizayactua">Unite a nuestra comunidad.</h2>
+
+			<div class="botones-inicio1">
+				<a class="boton-registro" href="{% url 'usuarios:registro' %}">REGISTRARSE</a>
+			</div>
+				<br>
+				</br>
+			<div class="botones-inicio">
+				<a href="{% url 'login' %}" class="botones">Iniciar sesión</a>
+			</div>
+				<br>
+				</br>
+			<div class="botones-inicio">
+				<a href="{% url 'ods:ods' %}" class="botones">ODS</a>
+			</div>
+			
+		{% endif %}
+
 	</div>
 {% endblock contenido %}
+
+
+		

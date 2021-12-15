@@ -4,8 +4,9 @@
 
 		<div id="fondo">
 
-			<form method="POST" action="{% url 'logout' %}">{%csrf_token%}
-			{{form.errors}}
+			<form method="POST" action="{% url 'logout' %}">
+				{%csrf_token%}
+				{{form.errors}}
 			</form>
 
 
