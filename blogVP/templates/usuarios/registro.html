@@ -25,7 +25,18 @@
 					<form method="POST" class="registro">
 						{%csrf_token%}
 						{{form.errors}}
-						{{form.as_p}}
+						<input type="text" name="username" placeholder="Usuario" class="usuario">
+						<br>
+						<br>
+						<input type="text" name="email" placeholder="Email" class="usuario">
+						<br>
+						<br>
+						<input type="password" name="password1" placeholder="Contraseña" class="contraseña">
+						<br>
+						<br>
+						<input type="password" name="password2" placeholder="Reingresar contraseña" class="contraseña">
+						<br>
+						<br>
 						<button type="submit" class="registrarse">Registrarse</button>
 					</form>
 

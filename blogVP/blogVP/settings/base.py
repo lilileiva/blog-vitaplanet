@@ -26,8 +26,8 @@ SECRET_KEY = '(!a6s@#r@_x-6pj26q*1odl(#b)v0u%t#2i-@spi#3y0c&$!6^'
 
 AUTH_USER_MODEL = 'usuarios.Usuario'
 
-LOGIN_REDIRECT_URL = reverse_lazy('principal')
-LOGOUT_REDIRECT_URL = reverse_lazy('principal')
+LOGIN_REDIRECT_URL = reverse_lazy('')
+LOGOUT_REDIRECT_URL = reverse_lazy('')
 LOGIN_URL = reverse_lazy('login')
 LOGOUT_URL = reverse_lazy('logout')
 

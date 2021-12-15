@@ -5,29 +5,6 @@
 
 	<div id="fondo">
 
-		{% if form.is_valid %}
-			<h1 class="frase-bienvenido">usuario creado</h1>
-			<b>
-			</b>
-
-			<h2 class="frase-visilizayactua">Visibilizá y actuá.</h2>
-			<h2 class="frase-visilizayactua">Unite a nuestra comunidad.</h2>
-
-			<div class="botones-inicio1">
-				<a class="boton-registro" href="{% url 'usuarios:registro' %}">REGISTRARSE</a>
-			</div>
-				<br>
-				</br>
-			<div class="botones-inicio">
-				<a href="{% url 'login' %}" class="botones">Iniciar sesión</a>
-			</div>
-				<br>
-				</br>
-			<div class="botones-inicio">
-				<a href="{% url 'ods:ods' %}" class="botones">ODS</a>
-			</div>
-		{% endif %}
-
 		{% if user.is_authenticated %}
 			<h1>Bienvenid@ {{user.username}}</h1>
 
