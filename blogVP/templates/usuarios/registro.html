@@ -4,16 +4,16 @@
 
 	{% if user.is_authenticated %}
 		<div id="fondo">
-			<div class="cuadro-login">
-				<div class="contenido-login">
-					<form method="POST" class="login">
+			<div class="cuadro-registro">
+				<div class="contenido-registro">
+					<form method="POST" class="registro">
 					
-						<h2 class="texto">Por favor, cierre sesión para registrarse</h2>
+						<h2 class="texto">Por favor, cierre sesión para registrarse.</h2>
 
 					<br>
 					<br>
 
-						<a href="{% url 'principal' %}" class="boton-volver-login">Volver</a>
+						<a href="{% url 'principal' %}" class="boton-volver-registro">Volver</a>
 
 				</div>
 			</div>
@@ -38,6 +38,7 @@
 						<br>
 						<br>
 						<button type="submit" class="registrarse">Registrarse</button>
+
 					</form>
 
 					<br>

@@ -1,8 +1,8 @@
 from django.urls import path
 from . import views
-from apps.usuarios.views import Registro
+from apps.usuarios.views import Registro, RegistroForm
 
-app_name = 'registro'
+app_name = 'usuarios'
 
 urlpatterns = [
     #path('admin/', admin.site.urls),

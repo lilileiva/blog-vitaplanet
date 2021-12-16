@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from apps.usuarios.models import Usuario
 
+
 class RegistroForm(UserCreationForm):
 
 	class Meta:
@@ -18,5 +19,6 @@ class RegistroForm(UserCreationForm):
 				'password2': 'Reingresar contraseña',
 				}
 				
-				
+
+
 		
