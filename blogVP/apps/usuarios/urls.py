@@ -6,6 +6,6 @@ app_name = 'usuarios'
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
-    path('', Registro.as_view(), name = 'registro'),
+    path('registro/', Registro.as_view(), name = 'registro'),
 
 ]
