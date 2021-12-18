@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth
+from django.conf import settings
+from django.conf.urls.static import static
 
 from . import views
 
@@ -28,7 +30,11 @@ urlpatterns = [
     path('post/', include('apps.Post.urls')),
     path('login/', auth.LoginView.as_view(template_name="usuarios/login.html"), name = 'login'),
     path('logout/', auth.LogoutView.as_view(template_name="usuarios/logout.html"), name = 'logout'),
-
-    path('registro/', include('apps.usuarios.urls', namespace = 'usuarios') ),
+    path('perfil/', views.Perfil, name="perfil"),
+    path('', include('apps.usuarios.urls', namespace = 'usuarios') ),
     
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block css %}
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+<div>
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+            {{ form.content|as_crispy_field }}
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary" value="">
+                comentar
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -7,7 +7,7 @@
     <div class="row">
     <div class="col-4 offset-4">
     <div class="card" style="pad: 10;">
-        <h1>{{ object.tittle}}</h1>
+        <h1>{{ object.title}}</h1>
         <img src="{{ object.thumbnail.url }}" class="card-img-top" alt="...">
         <hr/>
 
@@ -28,25 +28,25 @@
         <div>
             <h4>Enjoy this post? Give it a like</h4>
 
-            <a class="text.muted" href="{{ object.get_like_url }}">
-            .<i class="fas fa-thumbs-up fa-lg"></i>
-            {{ object.get_like_count }}
-            </a>
+            <form method="post" action="{% url 'Post:like' post.id %}">
+                {% csrf_token %}
+                <button class="text.muted" value="{{ post.id }}" name="post_id" type="submit" style="padding: 0; border: none; background: none;">
+                    <i class="fas fa-thumbs-up fa-lg" ></i>
+                </button>
+            </form>
             <hr />
             {% if request.user.is_authenticated %}
                 <h4>Leave a comment below</h4>
-                <form method="POST">
-                    {% csrf_token %}
-                    {{ form|crispy }}
-                    <button class='btn btn-primary' type="submit">comment</button>
-                </form>
+                <div>
+                    <a href="{% url 'Post:comment' post.pk %}" class='btn btn-primary'>comment</a>
+                </div>
                 <hr />
                 <h5>Comments</h5>
                 {% for comment in object.comments %}
                     <div>
                         <p>{{ comment.content }}
                         <br />
-                        <small>{{ comment.timestamp|timesince }} ago</small>
+                        <small>{{ comment.user }}  {{ comment.timestamp|timesince }} ago</small>
                         </p>
                     </div>
                     <hr />
@@ -55,6 +55,12 @@
             <a href="{% url 'account_login' %}" class="btn btn-primary btn-block">Login to comment</a>
             {% endif %}
         </div>
+        {% if user.is_superuser %}
+            <form action="{% url 'Post:delete' post.id %}" method="post">
+                {% csrf_token %}
+                <button class="btn btn-danger" type="submit" value="confirm" >Eliminar posts</button>
+            </form>
+        {% endif %}
     </div>
     </div>
     </div>

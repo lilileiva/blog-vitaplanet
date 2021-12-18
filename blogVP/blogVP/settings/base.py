@@ -30,6 +30,9 @@ LOGIN_REDIRECT_URL = reverse_lazy('principal')
 LOGOUT_REDIRECT_URL = reverse_lazy('principal')
 LOGIN_URL = reverse_lazy('login')
 LOGOUT_URL = reverse_lazy('logout')
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+ALLOWED_IMG = ('.jpg', '.jpeg', '.bmp', '.png')
 
 # Application definition
 
