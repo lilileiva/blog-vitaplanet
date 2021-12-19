@@ -12,7 +12,7 @@
     <div class="card" style="pad: 10;">
 
         <h1>{{ object.title}}</h1>
-
+        <img src="{{ object.thumbnail.url }}" class="card-img-top" alt="...">
         <div>
             <span><i class="fas fa-comments ml-2"> </i>{{ object.get_comment_count }}</span>
             <span><i class="fas fa-eye ml-2"> </i>{{ object.get_view_count }}</span>
@@ -21,8 +21,6 @@
         </div>
 
         <hr/>
-
-        <img src="{{ object.thumbnail.url }}" class="card-img-top" alt="...">
 
         <hr/>
 
