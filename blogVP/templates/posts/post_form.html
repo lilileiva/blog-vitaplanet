@@ -6,15 +6,47 @@
 {% endblock %}
 
 {% block content %}
+
+    {% if user.is_authenticated %}
+
     <div class="container">
-        <h1>Esta es la vista de {{ view_type }}</h1>
+        <h1>Nuevo posteo {{ view_type }}</h1>
         <form method="POST" enctype="multipart/form-data">
+            <br>
             {% csrf_token %}
             {{ form.title|as_crispy_field }}
+            <br>
             {{ form.content|as_crispy_field }}
+            <br>
             {{ form.thumbnail|as_crispy_field }}
+            <br>
             {{ form.category|as_crispy_field }}
+            <br>
             <button class="btn btn-primary pt-2" type="submit">Crear post</button>
         </form>
+
+        <a href="{% url 'principal' %}" class="botones">Volver al inicio</a>
     </div>
+
+    {% else %}
+
+    <div id="fondo">
+        <div class="cuadro-login">
+            <div class="contenido-login">
+                <form method="POST" class="login">
+                
+                    <h2 class="texto">Inicie sesión para postear.</h2>
+
+                <br>
+                <br>
+
+                    <a href="{% url 'login' %}" class="boton-volver-login">Iniciar sesión</a>
+
+            </div>
+        </div>
+    </div>
+
+    {% endif %}
+
+
 {% endblock content %}

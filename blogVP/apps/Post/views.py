@@ -5,6 +5,9 @@ from .models import Post, PostView, DisLike, Comment
 from .forms import PostForm, CommentForm
 from django.http.response import HttpResponseRedirect
 from django.urls import reverse
+
+from django.urls import reverse_lazy
+
 class PostListView(ListView):
     model = Post
     ordering = ['-publish_date']
@@ -50,7 +53,7 @@ class PostCreateView(CreateView):
     form_class = PostForm
     model = Post
     template_name = 'posts/post_form.html'
-    success_url = '/'
+    success_url = reverse_lazy('post/list/')
     login_url = settings.LOGIN_URL
 
     def form_valid(self, form):

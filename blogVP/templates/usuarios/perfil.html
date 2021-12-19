@@ -2,11 +2,39 @@
 {% block css %}
     {{ block.super }}
 {% endblock %}
+
 {% block content %}
-    <div class="container">
-        <div class="container">
-            <p>{{ user.username }}</p>
-            <p>{{ user.email }}</p>
+    
+    {% if user.is_authenticated %}
+    <div class="cuadro-perfil">
+        <h1>Perfil</h1>
+        <h6 class="texto-perfil">Usuario: </h6> 
+            <p class="texto-perfil">{{ user.username }}</p>
+        <h6 class="texto-perfil">E-mail: </h6>
+            <p class="texto-perfil">{{ user.email }}</p>
+        <br>
+        <br>
+        <a href="{% url 'principal' %}" class="botones">Volver al inicio</a>
+    </div>
+
+    {% else %}
+
+    <div id="fondo">
+        <div class="cuadro-login">
+            <div class="contenido-login">
+                <form method="POST" class="login">
+                
+                    <h2 class="texto">Inicie sesión.</h2>
+
+                <br>
+                <br>
+
+                    <a href="{% url 'login' %}" class="boton-volver-login">Iniciar sesión</a>
+
+            </div>
         </div>
     </div>
+
+    {% endif %}
+
 {% endblock %}
