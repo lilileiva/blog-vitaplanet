@@ -34,7 +34,7 @@
 			<div class="d-flex justify-content-start col-6">
 				<a href="{% url 'principal' %}"><img class="imagen-logo" src="{% static 'img/pixlr-bg-result.png' %}" ></a>
 				<br>
-				<h1 class="titulo">VitaPlanet</h1>
+				<a href="{% url 'principal' %}" class="titulo"><h1 class="titulo">VitaPlanet</h1></a>
 			</div>
 			{% if user.is_authenticated %}
 				<div class="d-flex justify-content-end col-6 pt-4 pb-5">
