@@ -6,33 +6,38 @@
 {% endblock %}
 
 {% block content %}
-    {% if user.is_authenticated %}
-        <div>
-            <form method="POST">
-                {% csrf_token %}
-                <div>
-                    {{ form.content|as_crispy_field }}
-                </div>
-                <div>
-                    <button type="submit" class="btn btn-primary" value="">
-                        comentar
-                    </button>
-                </div>
-            </form>
-        </div>
-    {% else %}
-        <div class="container">
-            <br>
-            <br>
-            <div class="cuadro-perfil">
-                <div class="container">
-                        <h1 class="texto">Inicie sesión para comentar</h1>
-                        <br>
-                        <a href="{% url 'login' %}" class="ingresar">Iniciar sesión</a>
+    <div class="container">    
+        {% if user.is_authenticated %}
+            <div>
+                <br>
+                <h2>Escriba su comentario</h2>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div>
+                        {{ form.content|as_crispy_field }}
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary" value="">
+                            comentar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        {% else %}
+            <div class="container">
+                <br>
+                <br>
+                <div class="cuadro-perfil">
+                    <div class="container">
+                            <h1 class="texto">Inicie sesión para comentar</h1>
+                            <br>
+                            <a href="{% url 'login' %}" class="ingresar">Iniciar sesión</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    {% endif %}
-    <hr>
-    <a href="{% url 'Post:list' %}" class="botones">Volver</a>
+        {% endif %}
+        <hr/>
+        <a href="{% url 'Post:list' %}" class="botones">Volver</a>
+    </div>
+
 {% endblock %}

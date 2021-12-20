@@ -15,7 +15,6 @@
                 <div style="padding: 10;">
                     <p>{{ object.content }}</p>
                 </div>
-                <br>
                 <div>
                     <span><i class="fas fa-comments ml-2"> </i>{{ object.get_comment_count }}</span>
                     <span><i class="fas fa-eye ml-2"> </i>{{ object.get_view_count }}</span>
@@ -78,6 +77,7 @@
                         <button class="btn btn-danger" type="submit" value="confirm" >Eliminar posteos</button>
                     </form>
                 {% endif %}
+                <hr />
                 <a href="{% url 'Post:list' %}" class="botones">Volver</a>
             </div>
         </div>
