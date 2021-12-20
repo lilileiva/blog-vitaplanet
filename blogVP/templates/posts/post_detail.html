@@ -1,32 +1,40 @@
 {% extends "base.html" %}
+
+
 {% load crispy_forms_tags %}
 {% block css %}
     {{ block.super }}
 {% endblock %}
+
 {% block content %}
     <div class="row">
     <div class="col-4 offset-4">
     <div class="card" style="pad: 10;">
+
         <h1>{{ object.title}}</h1>
         <img src="{{ object.thumbnail.url }}" class="card-img-top" alt="...">
-        <hr/>
-
         <div>
             <span><i class="fas fa-comments ml-2"> </i>{{ object.get_comment_count }}</span>
             <span><i class="fas fa-eye ml-2"> </i>{{ object.get_view_count }}</span>
             <span><i class="fas fa-thumbs-up ml-2"> </i> {{ object.get_like_count }}</span>
-            <span class="float-right">Posted {{ object.publish_date|timesince }} ago</span>
+            <span class="float-right">Posteado hace {{ object.publish_date|timesince }}</span>
         </div>
+
         <hr/>
 
-        <div style="padding: 10;">
+        <hr/>
+
         <p>{{ object.content }}</p>
+
         </div>
 
         <hr/>
 
         <div>
-            <h4>Enjoy this post? Give it a like</h4>
+
+            {% if user.is_authenticated %}
+
+            <h4>Dale "me gusta" a este posteo</h4>
 
             <form method="post" action="{% url 'Post:like' post.id %}">
                 {% csrf_token %}
@@ -35,35 +43,42 @@
                 </button>
             </form>
             <hr />
-            {% if request.user.is_authenticated %}
-                <h4>Leave a comment below</h4>
+
+                <h4>Dejá un comentario</h4>
                 <div>
-                    <a href="{% url 'Post:comment' post.pk %}" class='btn btn-primary'>comment</a>
+                    <a href="{% url 'Post:comment' post.pk %}" class='btn btn-primary'>comentar</a>
                 </div>
                 <hr />
-                <h5>Comments</h5>
+                <h5>Comentarios</h5>
                 {% for comment in object.comments %}
-                    <div>
-                        <p>{{ comment.content }}
-                        <br />
-                        <small>{{ comment.user }}  {{ comment.timestamp|timesince }} ago</small>
+                    <div class="contenido-comentario">
+                        <p class="comentario">{{ comment.content }}
+                        <br/>
                         </p>
+                        <small class="detalle-comentario">por {{ comment.user }} hace {{ comment.timestamp|timesince }}</small> 
                     </div>
                     <hr />
                 {% endfor %}
+
             {% else %}
-            <a href="{% url 'account_login' %}" class="btn btn-primary btn-block">Login to comment</a>
+
+            <a href="{% url 'login' %}" class="btn btn-primary btn-block">Inicie sesión para comentar</a>
+
             {% endif %}
+
         </div>
+
         {% if user.is_superuser %}
             <form action="{% url 'Post:delete' post.id %}" method="post">
                 {% csrf_token %}
-                <button class="btn btn-danger" type="submit" value="confirm" >Eliminar posts</button>
+                <button class="btn btn-danger" type="submit" value="confirm" >Eliminar posteos</button>
             </form>
         {% endif %}
-    </div>
-    </div>
-    </div>
 
+        <a href="{% url 'Post:list' %}" class="botones">Volver a posteos</a>
+
+    </div>
+    </div>
+    </div>
 
 {% endblock content %}

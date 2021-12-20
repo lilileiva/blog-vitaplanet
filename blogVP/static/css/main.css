@@ -66,6 +66,7 @@ body{
 	left:100px;
 }
 
+
 /*----------------------principal------------------------*/
 #fondo{
 	background-image: url(https://images.pexels.com/photos/296282/pexels-photo-296282.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
@@ -126,7 +127,7 @@ body{
 	font-size: 17px;
 	text-decoration: none;
 	color: seagreen;
-	-webkit-text-stroke: 0.15px darkblue;	
+	-webkit-text-stroke: 0.15px darkblue;
 }
 
 /*-------------login--------------*/
@@ -221,6 +222,49 @@ body{
 .texto{
 	color: seagreen;
 	font-size: 20px;
+}
+
+/*-----------------posts---------------*/
+
+.btn-primary {
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+
+.contenido-comentario {
+	text-align: left;
+	background-color: skyblue;
+	border: 3px solid skyblue;
+	border-radius: 20px;
+	opacity: 0.7;
+}
+
+.comentario {
+	font-size: 20px;
+	margin:  10px;
+	margin-bottom: 0px;
+	text-align: left;
+}
+
+.detalle-comentario {
+	margin-left: 10px;
+}
+
+/*-----------------perfil---------------*/
+
+.cuadro-perfil{
+	background-color: skyblue;
+	border: 3px solid skyblue;
+	border-radius: 20px;
+	opacity: 0.7;
+	width: 300px;
+	padding: 30px;
+	display: inline-block;
+	margin-top: 35px;
+}
+
+.texto-perfil {
+	margin: 20px;
 }
 
 /*--------------------------------*/

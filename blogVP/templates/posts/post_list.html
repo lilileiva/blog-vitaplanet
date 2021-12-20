@@ -5,6 +5,9 @@
 {% block content %}
     <div class="container">
         <div class="row">
+
+            <h1>Posteos</h1>
+
             {% if posts %}    
                 {% for p in posts %}
                     <div class="col-4">
@@ -34,15 +37,18 @@
                     <div class="row mt-5">
                         <div class="d-flex justify-content-center">
                             <div class="alert alert-danger mb-5">
-                                No hay post para mostrar!
+                                ¡No hay post para mostrar!
                             </div>
                         </div>
                         <div>
-                            <a class="btn btn-primary mt-5" href="{% url 'Post:create' %}">Crear primer post!</a>
+                            <a class="btn btn-primary mt-5" href="{% url 'Post:create' %}">¡Crear primer post!</a>
                         </div>
                     </div>
                 </div>
             {% endif %}
+
+            <a href="{% url 'principal' %}" class="botones">Volver</a>
+
         </div>
     </div>
 {% endblock content %}
