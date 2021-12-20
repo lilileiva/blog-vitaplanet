@@ -10,6 +10,12 @@ class PostForm(forms.ModelForm):
             'thumbnail',
             'category',
         ]
+        labels = {
+            'title': 'Titulo', 
+            'content': 'Contenido / descripción', 
+            'thumbnail': 'Imagen', 
+            'category': 'Categoría',
+            }
         
 class CommentForm(forms.ModelForm):
     content = forms.CharField(required=True,widget=forms.Textarea(attrs={

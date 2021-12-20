@@ -152,6 +152,7 @@ body{
 	font-size: 20px;
 	border-radius: 20px;
 	padding: 5px;
+	text-decoration: none;
 }
 
 .cuadro-login{
@@ -221,6 +222,32 @@ body{
 .texto{
 	color: seagreen;
 	font-size: 20px;
+}
+
+/*---------------perfil-----------------*/
+
+.cuadro-perfil{
+	background-color: skyblue;
+	border: 3px solid skyblue;
+	border-radius: 20px;
+	opacity: 0.7;
+	width: 300px;
+	padding: 30px;
+	display: inline-block;
+	margin-bottom: 35px;
+}
+
+.texto-perfil {
+	margin-top: 10px;
+}
+
+.btn-primary {
+	margin: 30px;
+	margin-bottom: 10%;
+}
+
+.texto-btnprimary {
+	font-size: 25px;
 }
 
 /*--------------------------------*/

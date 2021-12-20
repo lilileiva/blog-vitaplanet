@@ -6,15 +6,34 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <h1>Esta es la vista de {{ view_type }}</h1>
-        <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.title|as_crispy_field }}
-            {{ form.content|as_crispy_field }}
-            {{ form.thumbnail|as_crispy_field }}
-            {{ form.category|as_crispy_field }}
-            <button class="btn btn-primary pt-2" type="submit">Crear post</button>
-        </form>
-    </div>
+    {% if user.is_authenticated %}
+        <div class="container">
+            <br>
+            <h1>Nuevo post {{ view_type }}</h1>
+            <br>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.title|as_crispy_field }}
+                <br>
+                {{ form.content|as_crispy_field }}
+                <br>
+                {{ form.thumbnail|as_crispy_field }}
+                <br>
+                {{ form.category|as_crispy_field }}
+                <button class="btn btn-primary pt-2" type="submit">Crear post</button>
+            </form>
+        </div>
+    {% else %}
+        <div class="container">
+            <br>
+            <br>
+            <div class="cuadro-perfil">
+                <div class="container">
+                        <h1 class="texto">Inicie sesión para postear</h1>
+                        <br>
+                        <a href="{% url 'login' %}" class="ingresar">Iniciar sesión</a>
+                </div>
+            </div>
+        </div>
+    {% endif %}
 {% endblock content %}

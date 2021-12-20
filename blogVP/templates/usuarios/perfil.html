@@ -3,10 +3,32 @@
     {{ block.super }}
 {% endblock %}
 {% block content %}
-    <div class="container">
+
+    {% if user.is_authenticated %}
         <div class="container">
-            <p>{{ user.username }}</p>
-            <p>{{ user.email }}</p>
+            <h1 class="texto-perfil">Perfil</h1>
+            <div class="cuadro-perfil">
+                <div class="container">
+                    <h6>Usuario:</h6>
+                        <p>{{ user.username }}</p>
+                    <h6>Email:</h6>
+                        <p>{{ user.email }}</p>
+                </div>
+            </div>
         </div>
-    </div>
+    {% else %}
+        <div class="container">
+            <br>
+            <br>
+            <div class="cuadro-perfil">
+                <div class="container">
+                        <h1 class="texto">Inicie sesión para ver perfil</h1>
+                        <br>
+                        <a href="{% url 'login' %}" class="ingresar">Iniciar sesión</a>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    <a href="{% url 'principal' %}" class="botones">Volver</a>
+
 {% endblock %}
