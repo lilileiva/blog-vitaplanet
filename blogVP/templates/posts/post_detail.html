@@ -47,10 +47,10 @@
                                 <hr />
                             {% endfor %}  
                     </div>
-                {% endif %}
+                {% else %}
                     <div>
                         <h4>Dale "me gusta" a este post</h4>
-                        <form method="post" action="{% url 'Post:like' post.id %}">
+                        <form method="post" action="{% url 'login' %}">
                             {% csrf_token %}
                             <button class="text.muted" value="{{ post.id }}" name="post_id" type="submit" style="padding: 0; border: none; background: none;">
                                 <i class="fas fa-thumbs-up fa-lg" ></i>
@@ -71,7 +71,7 @@
                                 <hr />
                             {% endfor %}
                     </div>
-
+                {% endif %}
                 {% if user.is_superuser %}
                     <form action="{% url 'Post:delete' post.id %}" method="post">
                         {% csrf_token %}
