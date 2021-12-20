@@ -6,17 +6,33 @@
 {% endblock %}
 
 {% block content %}
-<div>
-    <form method="POST">
-        {% csrf_token %}
+    {% if user.is_authenticated %}
         <div>
-            {{ form.content|as_crispy_field }}
+            <form method="POST">
+                {% csrf_token %}
+                <div>
+                    {{ form.content|as_crispy_field }}
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary" value="">
+                        comentar
+                    </button>
+                </div>
+            </form>
         </div>
-        <div>
-            <button type="submit" class="btn btn-primary" value="">
-                comentar
-            </button>
+    {% else %}
+        <div class="container">
+            <br>
+            <br>
+            <div class="cuadro-perfil">
+                <div class="container">
+                        <h1 class="texto">Inicie sesión para comentar</h1>
+                        <br>
+                        <a href="{% url 'login' %}" class="ingresar">Iniciar sesión</a>
+                </div>
+            </div>
         </div>
-    </form>
-</div>
+    {% endif %}
+    <hr>
+    <a href="{% url 'Post:list' %}" class="botones">Volver</a>
 {% endblock %}

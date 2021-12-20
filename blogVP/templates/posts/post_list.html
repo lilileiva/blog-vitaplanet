@@ -9,6 +9,7 @@
                 {% for p in posts %}
                     <div class="col-4">
                             <div class="card" style="width: 18rem;">
+                                <br>
                                 <img src="{{ p.thumbnail.url }}" class="card-img-top">
                                     <div class="card-body">
                                         <a href="{% url 'Post:detail' p.id %}">
@@ -22,11 +23,10 @@
                                         <span><i class="fas fa-comments ml-2"> </i>{{ p.get_comment_count }}</span>
                                     </p>
                                     <p class="cardd-text">
-                                        Posted {{ p.publish_date|timesince }}
+                                        Posteado hace {{ p.publish_date|timesince }}
                                     </p>
                                 </div>
-                            </div>
-                        
+                            </div>   
                     </div>
                 {% endfor %}
             {% else %}

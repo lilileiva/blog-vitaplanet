@@ -250,6 +250,21 @@ body{
 	font-size: 25px;
 }
 
+/*----------------comentarios----------------*/
+
+.comentarios {
+	background-color: skyblue;
+	border: 3px solid skyblue;
+	border-radius: 20px;
+	opacity: 0.8;
+	text-align: left;
+}
+
+.comentario {
+	text-align: left;
+	margin-left: 15px;
+}
+
 /*--------------------------------*/
 
 

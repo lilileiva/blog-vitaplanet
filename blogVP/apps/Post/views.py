@@ -5,6 +5,7 @@ from .models import Post, PostView, DisLike, Comment
 from .forms import PostForm, CommentForm
 from django.http.response import HttpResponseRedirect
 from django.urls import reverse
+
 class PostListView(ListView):
     model = Post
     ordering = ['-publish_date']
