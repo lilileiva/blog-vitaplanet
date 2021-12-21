@@ -244,13 +244,14 @@ body{
 }
 
 .btn-primary {
-	margin: 30px;
-	margin-bottom: 5%;
+	margin: 10px;
+	margin-bottom: 2%;
 }
 
 .texto-btnprimary {
 	font-size: 25px;
 }
+
 /*----------------post-----------------*/
 
 .contenido-post {

@@ -26,35 +26,8 @@
                     <button type="submit" class="btn btn-primary" style="float: left; display: inline">ODS/POSTS</button>
                 </form>
             </div>
-            <h1 class="texto" style="font-size: 40px; text-align: left">ODS / Posts</h1>
-            {% if author %}
-                {% for a in author %}
-                    <div class="col-4">
-                            <div class="card" style="width: 18rem;">
-                                <img src="{{ a.thumbnail.url }}" class="card-img-top">
-                                <div class="card-body">
-                                    <a href="{% url 'Post:detail' a.id %}">
-                                        <h5 class="card-title">{{ a.title}}</h5>
-                                    </a>
-                                    <p class="card-text">{{ a.content|truncatechars:30 }}</p>
-                                    <hr/>
-                                    <p>
-                                        <span>
-                                            <i class="fas fa-thumbs-up ml-2"> </i>{{ a.get_like_count }}
-                                        </span>
-                                        <span>
-                                            <i class="fas fa-eye ml-2"> </i>{{ a.get_view_count }}
-                                        </span>
-                                        <span>
-                                            <i class="fas fa-comments ml-2"> </i>{{ a.get_comment_count }}
-                                        </span>
-                                    </p>                                        
-                                    <p class="cardd-text">Posteado hace {{ a.publish_date|timesince }}</p>
-                                </div>
-                            </div>   
-                        </div>
-                {% endfor %}
-            {% elif posts %}
+            <h1 class="texto" style="font-size: 40px; text-align: left; ">Resultados de búsqueda</h1>
+            {% if posts %}
                 {% for p in posts %}
                     <div class="col-4">
                         <div class="card" style="width: 18rem;">

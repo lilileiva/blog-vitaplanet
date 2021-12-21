@@ -26,7 +26,11 @@
                     <button type="submit" class="btn btn-primary" style="float: left; display: inline">ODS/POSTS</button>
                 </form>
             </div>
-            <h1 class="texto" style="font-size: 40px; text-align: left">ODS / Posts</h1>
+            <h1 class="texto" style="font-size: 40px; text-align: left"> Objetivos de desarrollo sostenible </h1>
+            <p style="text-align: left;">
+            	El 25 de septiembre de 2015, los líderes mundiales adoptaron un conjunto de objetivos globales para erradicar la pobreza, proteger el planeta y asegurar la prosperidad para todos como parte de una nueva agenda de desarrollo sostenible. Cada objetivo tiene metas específicas que deben alcanzarse en los próximos 15 años.
+				Para alcanzar estas metas, todo el mundo tiene que hacer su parte: los gobiernos, el sector privado, la sociedad civil y personas como usted.
+			</p>
             {% if author %}
                 {% for a in author %}
                     <div class="col-4">
@@ -53,33 +57,6 @@
                                 </div>
                             </div>   
                         </div>
-                {% endfor %}
-            {% elif posts %}
-                {% for p in posts %}
-                    <div class="col-4">
-                        <div class="card" style="width: 18rem;">
-                            <img src="{{ p.thumbnail.url }}" class="card-img-top">
-                            <div class="card-body">
-                                <a href="{% url 'Post:detail' p.id %}">
-                                    <h5 class="card-title">{{ p.title}}</h5>
-                                </a>
-                                <p class="card-text">{{ p.content|truncatechars:30 }}</p>
-                                <hr/>
-                                <p>
-                                    <span>
-                                        <i class="fas fa-thumbs-up ml-2"> </i>{{ p.get_like_count }}
-                                    </span>
-                                    <span>
-                                        <i class="fas fa-eye ml-2"> </i>{{ p.get_view_count }}
-                                    </span>
-                                    <span>
-                                        <i class="fas fa-comments ml-2"> </i>{{ p.get_comment_count }}
-                                    </span>
-                                </p>                                        
-                                <p class="cardd-text">Posteado hace {{ p.publish_date|timesince }}</p>
-                            </div>
-                        </div>   
-                    </div>
                 {% endfor %}
             {% else %}
                 <div class="container mt-5">

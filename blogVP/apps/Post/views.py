@@ -25,11 +25,11 @@ def Busqueda(request):
         ).distinct()
         ctx = {}
         ctx['posts'] = posts
-        return render(request, 'posts/post_list.html', ctx)
+        return render(request, 'posts/post_busqueda.html', ctx)
     else:
         ctx = {}
         ctx['posts'] = posts
-        return render(request, 'posts/post_list.html', ctx)
+        return render(request, 'posts/post_busqueda.html', ctx)
 
 def Filtrar(request):
     queryset = request.GET.get("filtrar")
@@ -40,12 +40,12 @@ def Filtrar(request):
         )
         ctx = {}
         ctx['author'] = author
-        return render(request, 'posts/post_list.html', ctx)
+        return render(request, 'posts/post_ods.html', ctx)
     else:
         author = Post.objects.exclude(author_id = 1)
         ctx = {}
         ctx['author'] = author
-        return render(request, 'posts/post_list.html', ctx)
+        return render(request, 'posts/post_posts.html', ctx)
 
 class PostDetailView(DetailView):
     model = Post
