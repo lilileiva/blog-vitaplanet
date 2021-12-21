@@ -8,9 +8,9 @@
     <div class="container">
         <div class="row">
             <form method="GET" action="{% url 'Post:buscar' %}">
-                <span class="barra-busqueda">
-                    <input class="form-control" style="margin-top: 10px; border: 1px solid skyblue" type="text" placeholder="Buscar..." name="buscar" value="{{ request.GET.buscar }}">
-                    <button type="submit" class="btn btn-primary" style="">Buscar</button>
+                <span class="barra-busqueda" style="display: block">
+                    <input class="form-control" style="margin-top: 10px; border: 1px solid skyblue; width: 85%; display: inline" type="text" placeholder="Buscar..." name="buscar" value="{{ request.GET.buscar }}">
+                    <button type="submit" class="btn btn-primary" style="margin-top: 10px; float: right; display: inline">Buscar</button>
                 </span>
             </form>  
             {% if posts %}    
