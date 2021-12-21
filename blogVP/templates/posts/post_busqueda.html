@@ -12,8 +12,7 @@
                     <input class="form-control" style="margin-top: 10px; border: 1px solid skyblue" type="text" placeholder="Buscar..." name="buscar" value="{{ request.GET.buscar }}">
                     <button type="submit" class="btn btn-primary" style="">Buscar</button>
                 </span>
-            </form>
-            {{posts}}  
+            </form>  
             {% if posts %}    
                 {% for p in posts %}
                     <div class="col-4">
