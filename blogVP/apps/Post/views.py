@@ -26,19 +26,25 @@ def Busqueda(request):
         ctx['posts'] = posts
         return render(request, 'posts/post_list.html', ctx)
     else:
-        posts = Post.objects.all()
         ctx = {}
         ctx['posts'] = posts
         return render(request, 'posts/post_list.html', ctx)
 
 
-def Filtrar(request, pk):
-    category = Category.objects.get(pk = pk)
-    category = Post.objects.filter(Category = category)
-    ctx = {}
-    ctx['category'] = category
-    return render(request, 'posts:post_filtrar.html', ctx)
-
+def Filtrar(request):
+    queryset = request.GET.get("filtrar-ods")
+    author = Post.objects.all()
+    if queryset:
+        author = Post.objects.filter(
+            Q(author_id = queryset)
+        )
+        ctx = {}
+        ctx['author'] = author
+        return render(request, 'posts/post_list.html', ctx)
+    else:
+        ctx = {}
+        ctx['author'] = author
+        return render(request, 'posts/post_list.html', ctx)
 
 class PostDetailView(DetailView):
     model = Post

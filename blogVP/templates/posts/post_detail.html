@@ -59,7 +59,7 @@
                         <hr />
                         <h4>Dejá tu comentario</h4>
                         <div>
-                            <a href="{% url 'Post:comment' post.pk %}" class='btn btn-primary'>comentar</a>
+                            <a href="{% url 'Post:comment' post.pk %}" class='btn btn-primary'>Comentar</a>
                         </div>
                         <hr />
                         <h5>Comentarios</h5>
@@ -73,9 +73,10 @@
                     </div>
                 {% endif %}
                 {% if user.is_superuser %}
+                    <hr/>
                     <form action="{% url 'Post:delete' post.id %}" method="post">
                         {% csrf_token %}
-                        <button class="btn btn-danger" type="submit" value="confirm">Eliminar posteos</button>
+                        <button class="btn btn-danger" type="submit" value="confirm">Eliminar post</button>
                     </form>
                 {% endif %}
                 <hr />

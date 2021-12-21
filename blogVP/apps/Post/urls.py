@@ -22,7 +22,6 @@ urlpatterns = [
     path('<int:pk>/delete/', PostDeleteView.as_view(), name ='delete'),
     path('like/<int:pk>/', like, name='like'),
     path('<int:pk>/comment/', PostCommentView.as_view(), name = 'comment'),
-
     path('buscar/', views.Busqueda, name="buscar"),
-    path('filtrar/<int:pk>/', views.Filtrar, name="filtrar")
+    path('filtrar/', views.Filtrar, name="filtrar")
 ]

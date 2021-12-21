@@ -7,26 +7,56 @@
 {% block content %}
     <div class="container">
         <div class="row">
-
             <form method="GET" action="{% url 'Post:buscar' %}">
                 <span class="barra-busqueda" style="display: block">
                     <input class="form-control" style="margin-top: 10px; border: 1px solid skyblue; width: 85%; display: inline" type="text" placeholder="Buscar..." name="buscar" value="{{ request.GET.buscar }}">
                     <button type="submit" class="btn btn-primary" style="margin-top: 10px; float: right; display: inline">Buscar</button>
                 </span>
             </form> 
+            <div style="display: block">
+                <form method="GET" action="{% url 'Post:filtrar' %}">
+                    <button type="submit" class="btn btn-primary" style="float: left; display: inline" value="1" name="filtrar-ods">ODS</button>
+                </form>
+                <form method="GET" action="{% url 'Post:list' %}">
+                        <button type="submit" class="btn btn-primary" style="float: left; display: inline">POSTS</button>
+                </form>
+            </div>
 
-            {% for c in category %}
-                <a href="{% url 'Post:filtrar' c.pk %}">Ver categoría {{c.nombre}} </a>
-            {% endfor %}
-
-            {% if posts %}    
+            {% if author %}
+                {% for a in author %}
+                    <div class="col-4">
+                            <div class="card" style="width: 18rem;">
+                                <img src="{{ a.thumbnail.url }}" class="card-img-top">
+                                <div class="card-body">
+                                    <a href="{% url 'Post:detail' a.id %}">
+                                        <h5 class="card-title">{{ a.title}}</h5>
+                                    </a>
+                                    <p class="card-text">{{ a.content|truncatechars:30 }}</p>
+                                    <hr/>
+                                    <p>
+                                        <span>
+                                            <i class="fas fa-thumbs-up ml-2"> </i>{{ a.get_like_count }}
+                                        </span>
+                                        <span>
+                                            <i class="fas fa-eye ml-2"> </i>{{ a.get_view_count }}
+                                        </span>
+                                        <span>
+                                            <i class="fas fa-comments ml-2"> </i>{{ a.get_comment_count }}
+                                        </span>
+                                    </p>                                        
+                                    <p class="cardd-text">Posteado hace {{ a.publish_date|timesince }}</p>
+                                </div>
+                            </div>   
+                        </div>
+                {% endfor %}
+            {% elif posts %}
                 {% for p in posts %}
                     <div class="col-4">
                         <div class="card" style="width: 18rem;">
                             <img src="{{ p.thumbnail.url }}" class="card-img-top">
                             <div class="card-body">
                                 <a href="{% url 'Post:detail' p.id %}">
-                                <h5 class="card-title">{{ p.title}}</h5>
+                                    <h5 class="card-title">{{ p.title}}</h5>
                                 </a>
                                 <p class="card-text">{{ p.content|truncatechars:30 }}</p>
                                 <hr/>
