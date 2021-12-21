@@ -6,8 +6,11 @@ from .views import (
     PostUpdateView,
     PostDeleteView,
     PostCommentView,
-    like
+    like,
+    Busqueda,
+    Filtrar
     )
+from . import views
 
 app_name='Post'
 
@@ -18,5 +21,8 @@ urlpatterns = [
     path('<int:pk>/update/', PostUpdateView.as_view(), name ='update'),
     path('<int:pk>/delete/', PostDeleteView.as_view(), name ='delete'),
     path('like/<int:pk>/', like, name='like'),
-    path('<int:pk>/comment', PostCommentView.as_view(), name = 'comment')
+    path('<int:pk>/comment/', PostCommentView.as_view(), name = 'comment'),
+
+    path('buscar/', views.Busqueda, name="buscar"),
+    path('filtrar/<int:pk>/', views.Filtrar, name="filtrar")
 ]

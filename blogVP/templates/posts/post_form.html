@@ -6,34 +6,34 @@
 {% endblock %}
 
 {% block content %}
-    {% if user.is_authenticated %}
-        <div class="container">
-            <br>
-            <h1>Nuevo post {{ view_type }}</h1>
-            <br>
-            <form method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form.title|as_crispy_field }}
+    <div class="container">
+        {% if user.is_authenticated %}
                 <br>
-                {{ form.content|as_crispy_field }}
+                <h1>Nuevo post {{ view_type }}</h1>
                 <br>
-                {{ form.thumbnail|as_crispy_field }}
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.title|as_crispy_field }}
+                    <br>
+                    {{ form.content|as_crispy_field }}
+                    <br>
+                    {{ form.thumbnail|as_crispy_field }}
+                    <br>
+                    {{ form.category|as_crispy_field }}
+                    <button class="btn btn-primary pt-2" type="submit">Crear post</button>
+                </form>
+        {% else %}
                 <br>
-                {{ form.category|as_crispy_field }}
-                <button class="btn btn-primary pt-2" type="submit">Crear post</button>
-            </form>
-        </div>
-    {% else %}
-        <div class="container">
-            <br>
-            <br>
-            <div class="cuadro-perfil">
-                <div class="container">
+                <br>
+                <div class="cuadro-perfil">
+                    <div class="container">
                         <h1 class="texto">Inicie sesión para postear</h1>
                         <br>
                         <a href="{% url 'login' %}" class="ingresar">Iniciar sesión</a>
+                    </div>
                 </div>
-            </div>
-        </div>
-    {% endif %}
+        {% endif %}
+            <hr />
+            <a href="{% url 'principal' %}" class="botones">Volver</a>
+    </div>
 {% endblock content %}

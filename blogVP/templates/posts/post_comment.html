@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">    
+    <div class="container">
         {% if user.is_authenticated %}
             <div>
                 <br>
@@ -39,5 +39,4 @@
         <hr/>
         <a href="{% url 'Post:list' %}" class="botones">Volver</a>
     </div>
-
-{% endblock %}
+{% endblock content %}

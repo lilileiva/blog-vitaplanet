@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
+
 {% block css %}
     {{ block.super }}
 {% endblock %}
@@ -13,7 +14,7 @@
                 <img src="{{ object.thumbnail.url }}" class="card-img-top" alt="...">
                 <br>
                 <div style="padding: 10;">
-                    <p>{{ object.content }}</p>
+                    <p class="contenido-post">{{ object.content }}</p>
                 </div>
                 <div>
                     <span><i class="fas fa-comments ml-2"> </i>{{ object.get_comment_count }}</span>
@@ -28,23 +29,23 @@
                         <form method="post" action="{% url 'Post:like' post.id %}">
                             {% csrf_token %}
                             <button class="text.muted" value="{{ post.id }}" name="post_id" type="submit" style="padding: 0; border: none; background: none;">
-                                <i class="fas fa-thumbs-up fa-lg" ></i>
+                                <i class="fas fa-thumbs-up fa-lg"></i>
                             </button>
                         </form>
                         <hr />
-                            <h4>Dejá tu comentario</h4>
-                            <div>
-                                <a href="{% url 'Post:comment' post.pk %}" class='btn btn-primary'>comentar</a>
+                        <h4>Dejá tu comentario</h4>
+                        <div>
+                            <a href="{% url 'Post:comment' post.pk %}" class='btn btn-primary'>comentar</a>
+                        </div>
+                        <hr />
+                        <h5>Comentarios</h5>
+                        {% for comment in object.comments %}
+                            <div class="comentarios">
+                                <h6 class="comentario">{{ comment.content }}</h6>
+                                <small class="comentario">por {{ comment.user }} hace {{ comment.timestamp|timesince }}</small>
                             </div>
                             <hr />
-                            <h5>Comentarios</h5>
-                            {% for comment in object.comments %}
-                                <div class="comentarios">
-                                    <h6 class="comentario">{{ comment.content }}</h6>
-                                    <small class="comentario">por {{ comment.user }} hace {{ comment.timestamp|timesince }}</small>
-                                </div>
-                                <hr />
-                            {% endfor %}  
+                        {% endfor %}  
                     </div>
                 {% else %}
                     <div>
@@ -56,25 +57,25 @@
                             </button>
                         </form>
                         <hr />
-                            <h4>Dejá tu comentario</h4>
-                            <div>
-                                <a href="{% url 'Post:comment' post.pk %}" class='btn btn-primary'>comentar</a>
+                        <h4>Dejá tu comentario</h4>
+                        <div>
+                            <a href="{% url 'Post:comment' post.pk %}" class='btn btn-primary'>comentar</a>
+                        </div>
+                        <hr />
+                        <h5>Comentarios</h5>
+                        {% for comment in object.comments %}
+                            <div class="comentarios">
+                                <h6 class="comentario">{{ comment.content }}</h6>
+                                <small class="comentario">por {{ comment.user }} hace {{ comment.timestamp|timesince }}</small>
                             </div>
                             <hr />
-                            <h5>Comentarios</h5>
-                            {% for comment in object.comments %}
-                                <div class="comentarios">
-                                    <h6 class="comentario">{{ comment.content }}</h6>
-                                    <small class="comentario">por {{ comment.user }} hace {{ comment.timestamp|timesince }}</small>
-                                </div>
-                                <hr />
-                            {% endfor %}
+                        {% endfor %}
                     </div>
                 {% endif %}
                 {% if user.is_superuser %}
                     <form action="{% url 'Post:delete' post.id %}" method="post">
                         {% csrf_token %}
-                        <button class="btn btn-danger" type="submit" value="confirm" >Eliminar posteos</button>
+                        <button class="btn btn-danger" type="submit" value="confirm">Eliminar posteos</button>
                     </form>
                 {% endif %}
                 <hr />
@@ -82,5 +83,4 @@
             </div>
         </div>
     </div>
-
 {% endblock content %}

@@ -32,7 +32,6 @@ urlpatterns = [
     path('logout/', auth.LogoutView.as_view(template_name="usuarios/logout.html"), name = 'logout'),
     path('perfil/', views.Perfil, name="perfil"),
     path('', include('apps.usuarios.urls', namespace = 'usuarios') ),
-    
 ]
 
 if settings.DEBUG:

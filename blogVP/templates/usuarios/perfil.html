@@ -1,18 +1,24 @@
 {% extends "base.html" %}
+
 {% block css %}
     {{ block.super }}
 {% endblock %}
-{% block content %}
 
+{% block content %}
     {% if user.is_authenticated %}
         <div class="container">
             <h1 class="texto-perfil">Perfil</h1>
             <div class="cuadro-perfil">
-                <div class="container">
-                    <h6>Usuario:</h6>
-                        <p>{{ user.username }}</p>
-                    <h6>Email:</h6>
-                        <p>{{ user.email }}</p>
+                <div>
+                    <div class="container" style="float: center; display: block">
+                        <h5 style="display: inline; color: darkgreen">Usuario:</h5>
+                        <p class="texto" style="display: inline; color: black">{{ user.username }}</p>
+                    </div>
+                    <br>
+                    <div class="container" style="float: center; display: block">
+                        <h5 style="display: inline; color: darkgreen" >Email:</h5>
+                        <p class="texto" style="display: inline; color: black">{{ user.email }}</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -30,5 +36,4 @@
         </div>
     {% endif %}
     <a href="{% url 'principal' %}" class="botones">Volver</a>
-
-{% endblock %}
+{% endblock content %}

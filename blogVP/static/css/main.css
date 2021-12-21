@@ -2,6 +2,7 @@ body{
 	font-family: arial, helvetica, sans-serif;
 	background: url(pexels-lukas-296282.jpg);
 	font-size: 15px;
+	text-decoration: none;
 }
 
 *{
@@ -244,11 +245,21 @@ body{
 
 .btn-primary {
 	margin: 30px;
-	margin-bottom: 10%;
+	margin-bottom: 5%;
 }
 
 .texto-btnprimary {
 	font-size: 25px;
+}
+/*----------------post-----------------*/
+
+.contenido-post {
+	text-indent: 35px;
+	text-align: left;
+}
+
+.barra-busqueda {
+	white-space: nowrap;
 }
 
 /*----------------comentarios----------------*/

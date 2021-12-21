@@ -1,7 +1,9 @@
 {% extends "base.html" %}
+
 {% block css %}
     {{ block.super }}
 {% endblock %}
+
 {% block content %}
     <div class="container">
         <h1>Post Detal</h1>
@@ -9,6 +11,4 @@
             {{ object.title}}
         {% endfor %}
     </div>
-
-
 {% endblock content %}

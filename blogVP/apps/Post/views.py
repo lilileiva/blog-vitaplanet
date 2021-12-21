@@ -5,12 +5,32 @@ from .models import Post, PostView, DisLike, Comment
 from .forms import PostForm, CommentForm
 from django.http.response import HttpResponseRedirect
 from django.urls import reverse
+from django.db.models import Q
+
 
 class PostListView(ListView):
     model = Post
     ordering = ['-publish_date']
     template_name='posts/post_list.html'
     context_object_name = 'posts'
+
+def Busqueda(request):
+    queryset = request.GET.get("buscar")
+    posts = Post.objects.all()
+    if queryset:
+        posts = Post.objects.filter(
+            Q(title = queryset)
+        ).distinct()
+        ctx = {}
+        ctx['posts'] = posts
+        return render(request, 'posts/post_busqueda.html', ctx)
+
+def Filtrar(request, pk):
+    posts = Post.objects.get(pk = pk)
+    ctx = {}
+    ctx['posts'] =posts
+    return render(request, 'posts:post_filtrar.html', ctx)
+
 
 class PostDetailView(DetailView):
     model = Post
@@ -32,6 +52,7 @@ class PostDetailView(DetailView):
 
         return context
 
+
 class PostCommentView(CreateView):
     model = Comment
     form_class = CommentForm
@@ -46,6 +67,7 @@ class PostCommentView(CreateView):
         x.save()
 
         return HttpResponseRedirect(reverse('Post:detail', args=[str(x.post_id)]))
+
 
 class PostCreateView(CreateView):
     form_class = PostForm
@@ -76,11 +98,11 @@ class PostUpdateView(UpdateView):
         return context
 
 
-
 class PostDeleteView(DeleteView):
     model = Post
     template_name = 'posts/post_delete.html'
     success_url = '/'
+
 
 def like(request, pk):
     post = get_object_or_404(Post, id = request.POST.get('post_id'))
