@@ -19,8 +19,8 @@ def Busqueda(request):
     posts = Post.objects.all()
     if queryset:
         posts = Post.objects.filter(
-            Q(title = queryset)
-        ).distinct()
+            Q(title__icontains = queryset)
+        )
         ctx = {}
         ctx['posts'] = posts
         return render(request, 'posts/post_busqueda.html', ctx)
