@@ -20,6 +20,7 @@ def Busqueda(request):
     if queryset:
         posts = Post.objects.filter(
             Q(title__icontains = queryset) | 
+            Q(content__icontains = queryset) |
             Q(content__icontains = queryset)
         ).distinct()
         ctx = {}
@@ -30,9 +31,8 @@ def Busqueda(request):
         ctx['posts'] = posts
         return render(request, 'posts/post_list.html', ctx)
 
-
 def Filtrar(request):
-    queryset = request.GET.get("filtrar-ods")
+    queryset = request.GET.get("filtrar")
     author = Post.objects.all()
     if queryset:
         author = Post.objects.filter(
@@ -42,6 +42,7 @@ def Filtrar(request):
         ctx['author'] = author
         return render(request, 'posts/post_list.html', ctx)
     else:
+        author = Post.objects.exclude(author_id = 1)
         ctx = {}
         ctx['author'] = author
         return render(request, 'posts/post_list.html', ctx)
