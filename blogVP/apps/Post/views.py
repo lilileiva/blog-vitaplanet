@@ -24,12 +24,19 @@ def Busqueda(request):
         ).distinct()
         ctx = {}
         ctx['posts'] = posts
-        return render(request, 'posts/post_busqueda.html', ctx)
+        return render(request, 'posts/post_list.html', ctx)
+    else:
+        posts = Post.objects.all()
+        ctx = {}
+        ctx['posts'] = posts
+        return render(request, 'posts/post_list.html', ctx)
+
 
 def Filtrar(request, pk):
-    posts = Post.objects.get(pk = pk)
+    category = Category.objects.get(pk = pk)
+    category = Post.objects.filter(Category = category)
     ctx = {}
-    ctx['posts'] =posts
+    ctx['category'] = category
     return render(request, 'posts:post_filtrar.html', ctx)
 
 
