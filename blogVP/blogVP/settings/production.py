@@ -11,4 +11,3 @@ ALLOWED_HOSTS = ['midominio.com.ar']
 DATABASES = {
     '''base de datos de produccion'''
     }
-}

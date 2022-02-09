@@ -26,7 +26,7 @@ urlpatterns = [
     
     path('', views.Principal, name = 'principal'),
 
-    path('ods/', include('apps.ods.urls')),
+
     path('post/', include('apps.Post.urls')),
     path('login/', auth.LoginView.as_view(template_name="usuarios/login.html"), name = 'login'),
     path('logout/', auth.LogoutView.as_view(template_name="usuarios/logout.html"), name = 'logout'),
