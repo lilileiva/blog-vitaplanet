@@ -1,10 +1,11 @@
 # Blog-VitaPlanet
-Blog dirigido a la visualización y concientización de los objetivos de desarrollo sostenible.
+Blog dirigido a la visualización y concientización de los objetivos de desarrollo sostenible propuestos por la ONU.
+<br />
 <br />
 Dispone de login y registro para poder participar en el blog medidante comentarios y creando nuevos posts, además cuenta con barra de búsqueda y botones para filtrar resultados.
 
-Lenguajes y tecnologías utilizadas: 
-Python, Django, HTML, CSS, Bootstrap, SQLite.
+Lenguajes y tecnologías utilizadas: <br />
+<h4>Python, Django, HTML, CSS, Bootstrap, SQLite.</h4>
 
 ![homeVP](https://user-images.githubusercontent.com/94813118/162215213-70dd42d6-0a23-4db1-ae0b-dbeabc2e8596.png)
 ![signupVP](https://user-images.githubusercontent.com/94813118/162215261-74b5798f-803f-41b9-81cb-df94de122a9b.png)
