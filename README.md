@@ -4,7 +4,7 @@
 Blog dirigido a la visualización y concientización de los objetivos de desarrollo sostenible propuestos por la ONU.
 <br />
 <br />
-Dispone de login y registro para poder participar en el blog medidante comentarios y creando nuevos posts, además cuenta con barra de búsqueda y botones para filtrar resultados.
+Dispone de login y registro para poder participar en el blog mediante comentarios y creando nuevos posts, además cuenta con barra de búsqueda y botones para filtrar resultados.
 
 <h4>Lenguajes y tecnologías utilizadas:</h4>
 <h4>Python, Django, HTML, CSS, Bootstrap, SQLite.</h4>
